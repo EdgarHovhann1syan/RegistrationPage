@@ -9,6 +9,9 @@
 #include <sqlite3.h>
 #include <QDebug>
 #include <QString>
+#include <QListWidget>
+#include <sstream>
+#include <QLabel>
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -24,6 +27,8 @@ public:
     ~MainWindow();
 private slots:
     void submitHandler();
+    void handleShowUsers();
+    void deleteHandler();
 
 private:
     Ui::MainWindow *ui;
@@ -33,5 +38,9 @@ private:
     QVBoxLayout* mainLayout;
     QPushButton* submit;
     sqlite3* db;
+    QListWidget* users;
+    QLabel* countOfUsers;
+    QPushButton* deleteButton;
+
 };
 #endif // MAINWINDOW_H
